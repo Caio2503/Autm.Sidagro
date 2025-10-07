@@ -10,6 +10,5 @@ public class paginaHome {
         WebElement divisaoMunicipal = driver.findElement(By.id("router-link-divisao-municipal"));
         divisaoMunicipal.click();
 
-
     }
 }
