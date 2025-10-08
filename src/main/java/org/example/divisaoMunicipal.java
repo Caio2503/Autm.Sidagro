@@ -10,11 +10,14 @@ public class divisaoMunicipal {
         WebElement adicionarNovo = wait.until(ExpectedConditions.elementToBeClickable(By.id("adicionar-novo-button")));
         adicionarNovo.click();
 
-        WebElement campoLongitude = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("longitude-input")));
+        WebElement campoLongitude = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("longitude-input"))); // longitude usada apenas por se ro elemento utilizado mais abaixo na pagina, poderia ser tbm latitude
         Actions actions = new Actions(driver);
         actions.scrollToElement(campoLongitude).perform();
 
         boolean distrito = false; //variavel para definir se será selecionado distrito ou localidade no campo "tipo"
+        preencherDivisaoMunicipal(wait, distrito);
+    }
+    public static void preencherDivisaoMunicipal(WebDriverWait wait, boolean distrito){
         WebElement opcaoTipo = wait.until(ExpectedConditions.elementToBeClickable(By.id("mat-select-value-0")));
         opcaoTipo.click();
 
@@ -40,11 +43,11 @@ public class divisaoMunicipal {
         WebElement campoLatitude = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("latitude-input")));
         campoLatitude.sendKeys("-19.97851");
 
+        WebElement campoLongitude = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("longitude-input"))); //longitude declarada novamente para manter padrao, mas poderia ser passada como parametro da funcao "divisaoMunicipal",
         campoLongitude.sendKeys("-43.96912"); //defini a longitude la em cima pra dar scroll to element
         WebElement adicionarButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("adicionar-button")));
         adicionarButton.click();
         adicionarButton.click();
-
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//*[contains(text(), 'Divisão Municipal adicionada com sucesso!')]")
