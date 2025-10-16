@@ -11,7 +11,7 @@ import static org.example.divisaoMunicipal.*;
 
 
 public class Main {
-    public static void main(String[] args){ // exception usado para dar uma "pausa" no codigo
+    public static void main(String[] args) throws InterruptedException { // exception usado para dar uma "pausa" no codigo
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); // tempo maximo para uma acao, mantido alto por possiveis instabilidades com a rede
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); // mesma coisa do de cima, mas para os driver
@@ -19,6 +19,7 @@ public class Main {
         paginaLogin(wait);
         paginaHome(wait);
         divisaoMunicipal(driver, wait);
+        Thread.sleep(5000);
         //driver.quit();
     }
 
