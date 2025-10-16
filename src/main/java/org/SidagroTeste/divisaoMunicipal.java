@@ -4,7 +4,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions; // usado para descer a tela usa move to element e apagar o campo divisao municipal na edicao
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.WebDriver;
 
 public class divisaoMunicipal {
     private WebDriver driver;
