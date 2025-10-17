@@ -1,7 +1,7 @@
 package org.SidagroTeste;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions; // usado para descer a tela usa move to element e apagar o campo divisao municipal na edicao
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -50,7 +50,7 @@ public class divisaoMunicipal {
         WebElement campoLatitude = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("latitude-input")));
         campoLatitude.sendKeys(latitude);
 
-        campoLongitude.sendKeys(longitude); //defini o WebElement a longitude la em cima pra dar scroll to element
+        campoLongitude.sendKeys(longitude); //defini o WebElement da longitude na linha 21 pra dar scroll to element
 
         WebElement adicionarButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("adicionar-button")));
         adicionarButton.click();
