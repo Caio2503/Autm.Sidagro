@@ -15,6 +15,9 @@ public class divisaoMunicipal {
     }
 
     public void preencherDivisaoMunicipal(String nomeDivisao, String nomeEditado,Boolean distrito, String municipio, String estado, String latitude, String longitude) {
+        WebElement divisaoMunicipal = wait.until(ExpectedConditions.elementToBeClickable(By.id("router-link-divisao-municipal")));
+        divisaoMunicipal.click();
+
         WebElement adicionarNovo = wait.until(ExpectedConditions.elementToBeClickable(By.id("adicionar-novo-button")));
         adicionarNovo.click();
 
@@ -38,8 +41,7 @@ public class divisaoMunicipal {
 
         WebElement opcaoEstado = wait.until(ExpectedConditions.elementToBeClickable(By.id("mat-select-value-1")));
         opcaoEstado.click();
-        
-      
+
         String xpathDinamico = "//mat-option[contains(., '" + estado + "')]";
         WebElement opcaoSelecionada = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathDinamico)));
         opcaoSelecionada.click();
@@ -103,7 +105,6 @@ public class divisaoMunicipal {
             return false;
         }
     }
-
         public void campoEdicao(String nomeEditado) {
             WebElement editarButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("editar-button")));
             editarButton.click();
@@ -139,5 +140,10 @@ public class divisaoMunicipal {
             } catch (TimeoutException e) {
                 System.out.println("Falha ao editar. A mensagem de sucesso não foi encontrada.");
             }
+            voltarTelaPrincipal();
+        }
+        public void voltarTelaPrincipal(){
+            wait.until(ExpectedConditions.elementToBeClickable(By.id("header-back-button"))).click();
+            wait.until(ExpectedConditions.elementToBeClickable(By.id("header-back-button"))).click();
         }
 }

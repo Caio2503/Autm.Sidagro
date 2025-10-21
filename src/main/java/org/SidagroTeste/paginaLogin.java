@@ -25,15 +25,12 @@ public class paginaLogin {
 
         paginaHome();
     }
-
     public void paginaHome() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//*[contains(text(), 'Cadastros')]")
             ));
             System.out.println("Login completo");
-            WebElement divisaoMunicipal = wait.until(ExpectedConditions.elementToBeClickable(By.id("router-link-divisao-municipal")));
-            divisaoMunicipal.click();
         } catch (TimeoutException e) {
             System.out.println("Falha ao fazer login. O elemento de texto 'Cadastros' nao foi encontrado.");
         }
